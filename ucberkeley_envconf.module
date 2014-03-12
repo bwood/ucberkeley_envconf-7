@@ -106,8 +106,17 @@ function ucberkeley_envconf_form_alter(&$form, &$form_state, $form_id) {
 }
 
 function ucberkeley_envconf_cas_attributes_after_build($form, &$form_state) {
-	$form['cas_attributes']['ldap']['server']['#disabled'] = TRUE; //FIXME
-	$form['cas_attributes']['ldap']['server']['#description'] = t('<em><strong>Setting locked by ucberkeley_envconf.module</strong></em><br />') . $form['cas_attributes']['ldap']['server']['#description'];
-	return $form;
+  if (array_key_exists('cas_attributes', $form)) {
+    // cas_attributes prior to 7.x-1.0 uses this key
+    $form['cas_attributes']['ldap']['server']['#disabled'] = TRUE; //FIXME
+    $form['cas_attributes']['ldap']['server']['#description'] = t('<em><strong>Setting locked by ucberkeley_envconf.module</strong></em><br />') . $form['cas_attributes']['ldap']['server']['#description'];
+  }
+  elseif (array_key_exists('cas_attributes_ldap', $form)) {
+    // cas_attributes 7.x-1.0 uses this key
+    $form['cas_attributes_ldap']['cas_attributes_ldap_server']['#disabled'] = TRUE; //FIXME
+    $form['cas_attributes_ldap']['cas_attributes_ldap_server']['#description'] = t('<em><strong>Setting locked by ucberkeley_envconf.module</strong></em><br />') . $form['cas_attributes_ldap']['cas_attributes_ldap_server']['#description'];
+  }
+  //Don't try to alter the form if it's not one of the two above versions.
+  return $form;
 }
 
