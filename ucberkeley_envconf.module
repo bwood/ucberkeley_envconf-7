@@ -71,16 +71,15 @@ function ucberkeley_envconf_cas($env) {
  */
 function ucberkeley_envconf_cas_attributes($env) {
 	global $conf;
+
+  // openucb-768 stop using ucb_test
 	switch($env) {
 		case "dev":
 		case "test":
-			$conf['cas_attributes']['ldap']['server'] = 'ucb_test';
-			break;
 		case "live":
 			$conf['cas_attributes']['ldap']['server'] = 'ucb_prod';
 			break;
 	}
-
 }
 
 /**

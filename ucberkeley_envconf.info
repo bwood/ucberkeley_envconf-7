@@ -3,6 +3,6 @@ description = Set appropriate configuration for dev/test/live sites
 dependencies[] = ucberkeley_cas
 core = "7.x"
 package = "UC Berkeley"
-version = 7.x-2.0-alpha1
+version = 7.x-2.0-dev
 project = "ucberkeley_envconf"
 
