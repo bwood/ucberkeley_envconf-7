@@ -5,3 +5,31 @@
 function ucberkeley_envconf_install() {
   db_query("UPDATE {system} SET weight = -100 WHERE name = 'ucberkeley_envconf'");
 }
+
+/**
+ * Remove deprecated configuration for ldap-test.berkeley.edu (ucb_test)
+ */
+function ucberkeley_envconf_update_7000(&$sandbox) {
+  $messages = array();
+
+  $number = db_delete('ldap_servers')
+    ->condition('sid', 'ucb_test')
+    // on the off chance that a DIY user created another sid of 'ldap_test,'
+    // specify other properities of our original configuration to avoid deleting
+    // anyone's custom configuration
+    ->condition('name', 'ldap-test.berkeley.edu')
+    ->condition('address', 'ldap-test.berkeley.edu')
+    ->condition('port', 389)
+    ->condition('tls', 0)
+    ->condition('bind_method', 1)
+    ->execute();
+
+  if ($number == 0) {
+    $messages[] = t("No ldap-test configurations found.");
+  }
+  else {
+    $messages[] = t("Removed $number ldap-test configurations.");
+  }
+
+  return implode('<br />', $messages);
+}
