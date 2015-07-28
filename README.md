@@ -43,6 +43,13 @@ We chose #2 because
   functionality. They don't have to go edit code in settings.php. They
   don't have to disable rules.
 
+LDAP
+----
+Prior to 2.0 this code was setting the LDAP server (used by CAS Attributes) to 
+ldap-test.berkeley.edu in the dev and test environments.  In 2.0 we began using 
+ldap.berkeley.edu (production LDAP) in all environments, because the dev and 
+test environments require production-level availability of the LDAP server.
+
 Notes
 -----
 
