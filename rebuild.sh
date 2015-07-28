@@ -54,9 +54,8 @@ if [ "$BRANCH" != "master" ]; then
   cd ucberkeley_envconf
   git fetch origin
   git checkout $BRANCH
+  cd ..
 fi
-
-cd ..
 
 # rm .git/ and .gitignore
 rm -rf ucberkeley_envconf/.git*
