@@ -21,7 +21,6 @@ function ucberkeley_envconf_update_7000(&$sandbox) {
     ->condition('address', 'ldap-test.berkeley.edu')
     ->condition('port', 389)
     ->condition('tls', 0)
-    ->condition('bind_method', 1)
     ->execute();
 
   if ($number == 0) {
