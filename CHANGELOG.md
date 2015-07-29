@@ -1,3 +1,9 @@
+ucberkeley_envconf 7.x-2.2
+--------------------------
+* OPENUCB-768: Remove code that manages cas attributes. Cleaner and more 
+efficient. Fixes a bug introduced in 2.1 where the attributes of CAS 
+administrators added during a drush site install are not populated.
+
 ucberkeley_envconf 7.x-2.1
 --------------------------
 * OPENUCB-768 remove ldap-test.berkeley.edu configuration.  Ldap-test is 
