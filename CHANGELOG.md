@@ -1,4 +1,4 @@
-ucberkeley_envconf 7.x-2.2
+ucberkeley_envconf 7.x-2.3
 --------------------------
 * OPENUCB-957: Should auth.berkeley.edu become unavailable, quickly switch to 
 the backup CAS server (cas-p4.calnet.berkeley.edu) with 
