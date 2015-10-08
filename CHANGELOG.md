@@ -1,5 +1,11 @@
 ucberkeley_envconf 7.x-2.2
 --------------------------
+* OPENUCB-957: Should auth.berkeley.edu become unavailable, quickly switch to 
+the backup CAS server (cas-p4.calnet.berkeley.edu) with 
+'drush vset ucberkeley_envconf_cas_backup_server_enabled 1' (0 == off).
+
+ucberkeley_envconf 7.x-2.2
+--------------------------
 * OPENUCB-768: Remove code that manages cas attributes. Cleaner and more 
 efficient. Fixes a bug introduced in 2.1 where the attributes of CAS 
 administrators added during a drush site install are not populated.

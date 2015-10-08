@@ -43,6 +43,12 @@ We chose #2 because
   functionality. They don't have to go edit code in settings.php. They
   don't have to disable rules.
 
+CAS
+---
+Should auth.berkeley.edu become unavailable, quickly switch to 
+the backup CAS server (cas-p4.calnet.berkeley.edu) with 
+`drush vset ucberkeley_envconf_cas_backup_server_enabled 1` (0 == off).
+
 LDAP
 ----
 Prior to 2.0 this code was setting the LDAP server (used by CAS Attributes) to 

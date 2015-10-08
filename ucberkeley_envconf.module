@@ -52,13 +52,17 @@ function ucberkeley_envconf_boot() {
  */
 function ucberkeley_envconf_cas($env) {
 	global $conf;
+
+	$cas_server_live = 'auth.berkeley.edu';
+	$cas_server_test = 'auth-test.berkeley.edu';
+
 	switch($env) {
 		case "dev":
 		case "test":
-			$conf['cas_server'] = 'auth-test.berkeley.edu';
+			$conf['cas_server'] = (variable_get('ucberkeley_envconf_cas_backup_server_enabled', FALSE)) ? variable_get('ucberkeley_envconf_cas_backup_server', $cas_server_test) : $cas_server_test;
 			break;
 		case "live":
-			$conf['cas_server'] = 'auth.berkeley.edu';
+			$conf['cas_server'] = (variable_get('ucberkeley_envconf_cas_backup_server_enabled', FALSE)) ? variable_get('ucberkeley_envconf_cas_backup_server', $cas_server_live) : $cas_server_live;
 			break;
 	}
 }
