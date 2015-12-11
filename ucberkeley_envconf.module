@@ -33,6 +33,13 @@ function ucberkeley_envconf_boot() {
 		//Matched a dev domain
 		$site_env = 'dev';
 	}
+	else {
+	/*
+	 * If the Pantheon Envronment is set, but doesn't match live, test, or dev we can safely assume that
+	 * we are in a multidev environment, and treat this like dev
+	 */
+		$site_env = 'dev';
+	}
 
 	/*
 	 * it would be nice to only inject configuration when the corresponding module is present
