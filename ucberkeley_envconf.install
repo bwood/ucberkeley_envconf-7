@@ -37,10 +37,21 @@ function ucberkeley_envconf_update_7000(&$sandbox) {
   return implode('<br />', $messages);
 }
 
-function ucberkeley_envconf_update_7001(&$sandbox) {
+/**
+ * Set initial backup CAS server URI.
+ */
+function ucberkeley_envconf_update_7001() {
   variable_set('ucberkeley_envconf_cas_backup_server', 'cas-p4.calnet.berkeley.edu');
   variable_set('ucberkeley_envconf_cas_backup_server_enabled', 0);
 }
+
+/**
+ * Update backup CAS server URI to the new cluster.
+ */
+function ucberkeley_envconf_update_7002() {
+  variable_set('ucberkeley_envconf_cas_backup_server', 'cas-offsite.calnet.berkeley.edu');
+}
+
 
 function ucberkeley_envconf_uninstall() {
   variable_del('ucberkeley_envconf_cas_backup_server');

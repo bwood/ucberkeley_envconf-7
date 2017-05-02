@@ -1,3 +1,9 @@
+ucberkeley_envconf 7.x-2.4.0
+--------------------------
+* Begin using semantic versioning.
+* openucb-1557: Update the ucberkeley_envconf_cas_backup_server value to use
+the new cluster URI as opposed to a single server.
+
 ucberkeley_envconf 7.x-2.3
 --------------------------
 * OPENUCB-957: Should auth.berkeley.edu become unavailable, quickly switch to 
